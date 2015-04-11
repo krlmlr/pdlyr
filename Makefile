@@ -9,7 +9,7 @@ master: git
 gh-pages:
 	Rscript -e "devtools::build_vignettes()"
 	cp inst/doc/pdlyr.html ../$$(basename $$PWD).pages/index.html
-	cd ../$$(basename $$PWD).pages/ && git add . && git ci -m "update vignette" && git push
+	cd ../$$(basename $$PWD).pages/ && git fetch && git merge --no-edit origin/master --strategy ours && git add . && git ci --amend --no-edit && git push
 
 rd: git
 	Rscript -e "library(methods); devtools::document()"
