@@ -1,3 +1,6 @@
+- Add short-form pointers to original plyr implementations: `pmutate`, `pcount` and `prename`
+
+
 Version 0.0-1 (2015-04-11)
 ===
 
