@@ -1,6 +1,6 @@
 Package: pdlyr
 Title: Compatibility package to access both plyr and dplyr
-Version: 0.0-0
+Version: 0.0-1
 Authors@R: "Kirill Müller <krlmlr+r@mailbox.org> [aut, cre]"
 Description: This package aims at simplifying the transition
   from plyr to dplyr by providing suitable wrapper methods
