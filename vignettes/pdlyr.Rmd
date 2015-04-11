@@ -165,10 +165,48 @@ For an even more radical solution,
 all overlapping functions could be deprecated,
 referring to identical functionality in `dplyr`:
 
-- `mutate` -> `dplyr::mutate`
-- `summari[sz]e` -> `dplyr::summari[sz]e`
-- `arrange(df, ...)` -> `dplyr::arrange(.data, ...)`
+- `mutate` -> `dplyr::mutate_`
+- `summari[sz]e` -> `dplyr::summari[sz]e_`
+- `arrange(df, ...)` -> `dplyr::arrange_(.data, ...)`
 - `count(df, vars, wt_var)` -> `dplyr::count_(x, vars, wt, sort = FALSE)`
+    - modified call
 - `rename(x, replace, warn_missing)` -> `dplyr::rename_(.data, replace)`
-    - what about the `warn_missing` argument?
+    - `replace` needs to be massaged
+    - `warn_missing` is always `TRUE`
 - `desc()`, `failwith()`, `id()` -> `dplyr::...`
+
+
+# Summary
+
+For practical use, the following seems to work reasonably well
+for a project that was created using `plyr` and is now transitioning
+towards `dplyr`:
+
+```{r}
+library(plyr)
+library(dplyr)
+
+count <- function(df, vars = NULL, wt_var = NULL) {
+  .Deprecated("dplyr::count_", "plyr")
+  dplyr::count_(x = df, vars = vars, wt = wt_var, sort = FALSE) %>%
+    dplyr::rename(freq = n)
+}
+
+rename <- function(x, replace, warn_missing = TRUE) {
+  if (!warn_missing) {
+    warning("rename now always throws an error if names are not found.")
+  }
+  .Deprecated("dplyr::rename_", "dplyr")
+  do.call(dplyr::rename_, c(list(.data = x), as.list(setNames(names(replace), unlist(replace)))))
+}
+```
+
+A few examples:
+
+```{r}
+mtcars %>% mutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head
+mtcars %>% ddply("cyl", summarize, mean_mpg = mean(mpg))
+mtcars %>% arrange(-wt) %>% head
+mtcars %>% count("gear")
+mtcars %>% rename(list(mpg = "miles_per_gallon")) %>% head
+```
