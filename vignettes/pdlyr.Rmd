@@ -211,3 +211,11 @@ mtcars %>% plyr::count("gear")
 mtcars %>% rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
 mtcars %>% plyr::rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
 ```
+
+The original `plyr` implementations can be accessed via shortcuts:
+
+```{r}
+pmutate %>% identical(plyr::mutate)
+pcount %>% identical(plyr::count)
+prename %>% identical(plyr::rename)
+```
