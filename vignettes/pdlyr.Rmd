@@ -15,6 +15,10 @@ knit_print.data.frame = function(x, ...) {
   res = paste(c('', '', knitr::kable(x)), collapse = '\n')
   knitr::asis_output(res)
 }
+`knit_print.{` = function(x, ...) {
+  res <- paste(c("```r", paste0(c("", rep("  ", length(x)-1)), as.character(x)), "}", "```", ""), collapse = '\n')
+  knitr::asis_output(res)
+}
 ```
 
 # Problem statement
@@ -139,3 +143,9 @@ body_l %>%
   ldply(. %>% data.frame(identical_body = .), .id = "name")
 ```
 
+Only `failwith` is different, but the effect seems to be the same:
+
+```{r}
+body_l$failwith$plyr
+body_l$failwith$dplyr
+```
