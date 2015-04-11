@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "plyr and dplyr compatibility"
+author: "Kirill Müller"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -55,7 +55,7 @@ specific disadvantages:
   in the code
     - Doesn't safeguard new code that attempts to use `dplyr` primitives with `plyr`
 
-This document describes a compatibility layer as an alternative solution.
+This document explores alternative solutions.
 
 
 # Analysis
@@ -149,3 +149,26 @@ Only `failwith` is different, but the effect seems to be the same:
 body_l$failwith$plyr
 body_l$failwith$dplyr
 ```
+
+
+# Concept
+
+For fully seamless transition between `plyr` and `dplyr`,
+a compatibility package looks like a possible option.
+It would provide the union of the exported functions of both packages,
+and compatibility wrappers for the two functions
+`count` and `rename`
+that need special attention.
+
+Deprecating the functions `count` and `rename` in the `plyr` package seems simpler.
+For an even more radical solution,
+all overlapping functions could be deprecated,
+referring to identical functionality in `dplyr`:
+
+- `mutate` -> `dplyr::mutate`
+- `summari[sz]e` -> `dplyr::summari[sz]e`
+- `arrange(df, ...)` -> `dplyr::arrange(.data, ...)`
+- `count(df, vars, wt_var)` -> `dplyr::count_(x, vars, wt, sort = FALSE)`
+- `rename(x, replace, warn_missing)` -> `dplyr::rename_(.data, replace)`
+    - what about the `warn_missing` argument?
+- `desc()`, `failwith()`, `id()` -> `dplyr::...`
