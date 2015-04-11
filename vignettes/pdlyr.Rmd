@@ -165,10 +165,10 @@ For an even more radical solution,
 all overlapping functions could be deprecated,
 referring to identical functionality in `dplyr`:
 
-- `mutate` -> `dplyr::mutate_`
+- `mutate` -> `dplyr::mutate`
     - row names are lost
-- `summari[sz]e` -> `dplyr::summari[sz]e_`
-- `arrange(df, ...)` -> `dplyr::arrange_(.data, ...)`
+- `summari[sz]e` -> `dplyr::summari[sz]e`
+- `arrange(df, ...)` -> `dplyr::arrange(.data, ...)`
 - `count(df, vars, wt_var)` -> `dplyr::count_(x, vars, wt, sort = FALSE)`
     - modified call
     - rename `n` column to `freq`
