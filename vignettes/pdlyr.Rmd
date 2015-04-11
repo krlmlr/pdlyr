@@ -9,3 +9,133 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+```{r echo=F}
+library(magrittr)
+knit_print.data.frame = function(x, ...) {
+  res = paste(c('', '', knitr::kable(x)), collapse = '\n')
+  knitr::asis_output(res)
+}
+```
+
+# Problem statement
+
+When loading both `plyr` and `dplyr`,
+the last package loaded overwrites symbols exported by the
+package loaded first:
+
+```{r}
+library(plyr)
+library(dplyr)
+```
+
+Currently, the following symbols are affected:
+
+```{r}
+plyr_exports <- ls("package:plyr")
+dplyr_exports <- ls("package:dplyr")
+(both_exports <- intersect(plyr_exports, dplyr_exports))
+```
+
+This means that existing projects that use `plyr`
+cannot simply load `dplyr` using `library(dplyr)`
+without potentially breaking existing code.
+There are workarounds, but all of them seem to have
+specific disadvantages:
+
+- Load only one of both packages, access functionality from the
+  other package via explicit qualification (e.g., `dplyr::summarise`).
+    - Cumbersome
+- Don't load, always access via explicit qualification
+    - Requires extensive code rewriting for existing projects
+- Load `dplyr` after `plyr`, modify usage of conflicting symbols
+  in the code
+    - Doesn't safeguard new code that attempts to use `dplyr` primitives with `plyr`
+
+This document describes a compatibility layer as an alternative solution.
+
+
+# Analysis
+
+Let's take a closer look at the interface of the functions exported from both packages:
+
+```{r echo = FALSE}
+formals_df <-
+  both_exports %>%
+  setNames(nm = .) %>%
+  lapply(
+    . %>% {
+      lapply(
+        c("plyr", "dplyr") %>% setNames(nm = .),
+        function (x) {
+          get(., sprintf("package:%s", x)) %>%
+            formals %>% names %>% paste(collapse = ", ")
+        }
+      )
+    }
+  ) %>%
+  plyr::ldply(data.frame, stringsAsFactors = FALSE, .id = "name") %>%
+  plyr::mutate(data_first = grepl("^[.]data,", dplyr) | grepl("^df,", plyr),
+               identical = plyr == dplyr) %>%
+  plyr::arrange(!data_first, !identical, name)
+
+formals_df
+```
+
+We can split the overlaps in two groups:
+
+- The first argument is a data frame or table object
+- No data frame or table object, but identical formals
+
+## Data is first argument
+
+```{r echo = FALSE}
+formals_df %>%
+  subset(data_first) %>%
+  plyr::mutate(data_first = NULL)
+```
+
+Here, `mutate`, `summari[sz]e` and `arrange` mean the same in both `plyr` and `dplyr`,
+although `plyr::summari[sz]e` on a grouped `tbl_df` seems to
+destroy the grouping.
+The `count` function is similar, too, only that `plyr::count`
+is more similar to `dplyr::count_`, and that for some reason
+the first argument of `dplyr::count` is called `x` and not `.data`.
+Also, `plyr::rename` seems to be more similar to `dplyr::rename_`.
+
+## Identical formals
+
+```{r echo = FALSE}
+formals_df %>%
+  subset(!data_first & identical) %>%
+  plyr::mutate(data_first = NULL, identical = NULL)
+```
+
+Here, we take a look at the bodies.
+We compare them for textual identity.
+
+```{r echo = FALSE}
+body_l <-
+  formals_df %>%
+  subset(!data_first & identical) %>%
+  extract2("name") %>%
+  as.character %>%
+  setNames(nm = .) %>%
+  lapply(
+    . %>% {
+      lapply(
+        c("plyr", "dplyr") %>% setNames(nm = .),
+        function (x) {
+          get(., sprintf("package:%s", x)) %>%
+            body
+        }
+      )
+    }
+  )
+```
+
+```{r}
+body_l %>%
+  llply(. %>% { identical(as.character(.$plyr), as.character(.$dplyr)) } ) %>%
+  ldply(. %>% data.frame(identical_body = .), .id = "name")
+```
+
