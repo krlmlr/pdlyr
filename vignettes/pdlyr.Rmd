@@ -197,7 +197,7 @@ rename <- function(x, replace, warn_missing = TRUE) {
     warning("rename now always throws an error if names are not found.")
   }
   .Deprecated("dplyr::rename_", "dplyr")
-  do.call(dplyr::rename_, c(list(.data = x), as.list(setNames(names(replace), unlist(replace)))))
+  dplyr::rename_(.data = x, .dots = as.list(setNames(names(replace), unlist(replace))))
 }
 ```
 
@@ -205,8 +205,13 @@ A few examples:
 
 ```{r}
 mtcars %>% mutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head
+mtcars %>% plyr::mutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head
 mtcars %>% ddply("cyl", summarize, mean_mpg = mean(mpg))
+mtcars %>% ddply("cyl", plyr::summarise, mean_mpg = mean(mpg))
 mtcars %>% arrange(-wt) %>% head
+mtcars %>% plyr::arrange(-wt) %>% head
 mtcars %>% count("gear")
-mtcars %>% rename(list(mpg = "miles_per_gallon")) %>% head
+mtcars %>% plyr::count("gear")
+mtcars %>% rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
+mtcars %>% plyr::rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
 ```
