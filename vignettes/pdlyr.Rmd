@@ -196,26 +196,20 @@ library(pdlyr)
 
 Tests in the `pdlyr` package will assure that this package
 can be safely loaded with `warn.conflicts = FALSE`.
+The original `plyr` implementations can be accessed via shortcuts
+(prefix `p`).
 
 A few usage examples:
 
 ```{r}
 mtcars %>% mutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head
-mtcars %>% plyr::mutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head
+mtcars %>% pmutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head
 mtcars %>% ddply("cyl", summarize, mean_mpg = mean(mpg))
 mtcars %>% ddply("cyl", plyr::summarise, mean_mpg = mean(mpg))
 mtcars %>% arrange(-wt) %>% head
 mtcars %>% plyr::arrange(-wt) %>% head
 mtcars %>% count("gear")
-mtcars %>% plyr::count("gear")
+mtcars %>% pcount("gear")
 mtcars %>% rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
-mtcars %>% plyr::rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
-```
-
-The original `plyr` implementations can be accessed via shortcuts:
-
-```{r}
-pmutate %>% identical(plyr::mutate)
-pcount %>% identical(plyr::count)
-prename %>% identical(plyr::rename)
+mtcars %>% prename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
 ```
