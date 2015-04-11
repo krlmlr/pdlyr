@@ -184,11 +184,20 @@ For practical use, a thin compatibility layer seems to work reasonably well
 for a project that was created using `plyr` and is now transitioning
 towards `dplyr`:
 
+```{r echo = FALSE}
+setHook(packageEvent("plyr", "attach"), function(...) {}, action = "replace")
+devtools::unload(devtools::inst("dplyr"))
+devtools::unload(devtools::inst("plyr"))
+```
+
 ```{r}
 library(pdlyr)
 ```
 
-A few examples:
+Tests in the `pdlyr` package will assure that this package
+can be safely loaded with `warn.conflicts = FALSE`.
+
+A few usage examples:
 
 ```{r}
 mtcars %>% mutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head
