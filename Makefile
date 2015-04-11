@@ -7,7 +7,9 @@ master: git
 	test $$(git rev-parse --abbrev-ref HEAD) = "master"
 
 gh-pages:
-	git subtree split --prefix website --branch gh-pages
+	Rscript -e "devtools::build_vignettes()"
+	cp inst/doc/pdlyr.html ../$$(basename $$PWD).pages/index.html
+	cd ../$$(basename $$PWD).pages/ && git add . && git ci -m "update vignette" && git push
 
 rd: git
 	Rscript -e "library(methods); devtools::document()"
