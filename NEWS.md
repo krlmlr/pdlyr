@@ -1,3 +1,6 @@
+Version 0.0-2.1 (2015-04-12)
+===
+
 - Compatibility layer is now implemented as list that can be `attach()`ed, in order to later support different kinds of compatibility
 
 - Remove short-form pointers to original plyr implementations, the goal is transition to `dplyr`.
