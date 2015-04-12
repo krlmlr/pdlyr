@@ -1,8 +1,30 @@
+# Mockable warning
+plyr_warn <- function(name, expl) {
+  warning("Semantics of ", name, " are different in plyr and dplyr: ",
+          expl, .call = FALSE)
+}
+
 #'@export
 plyr_compat <- list(
   mutate = plyr::mutate,
   count = plyr::count,
   rename = plyr::rename
+)
+
+#'@export
+plyr_warn_compat <- list(
+  mutate = function(.data, ...) {
+    plyr_warn("mutate", "Row names will be lost")
+    plyr::mutate(.data = .data, ...)
+  },
+  count = function(df, vars = NULL, wt_var = NULL) {
+    plyr_warn("count", "Interface and name of count variable have changed")
+    plyr::count(df = df, vars = vars, wt_var = wt_var)
+  },
+  rename = function(x, replace, warn_missing = TRUE) {
+    plyr_warn("rename", "Entirely different interface, lists and vectors not accepted anymore")
+    plyr::rename(x = x, replace = replace, warn_missing = warn_missing)
+  }
 )
 
 #'@export

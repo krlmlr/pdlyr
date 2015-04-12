@@ -2,3 +2,4 @@
 
 export(dplyr_compat)
 export(plyr_compat)
+export(plyr_warn_compat)

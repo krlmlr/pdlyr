@@ -1,3 +1,5 @@
+- new compatibility layer `plyr_warn_compat` that still is fully compatible with plyr but issues a warning
+
 Version 0.0-2.1 (2015-04-12)
 ===
 
