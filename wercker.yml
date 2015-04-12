@@ -2,6 +2,9 @@ box: krlmlr/r-test
 build:
   steps:
     - script:
+        name: gh-pages
+        code: if ! make gh-pages-init gh-pages-build gh-pages-push; then fail "Updating vignette failed"; fi
+    - script:
         name: install
         code: if ! make install; then fail "Install failed"; fi
     - script:
@@ -13,6 +16,3 @@ build:
     - script:
         name: lint
         code: if ! make lintr; then fail "Linting failed"; fi
-    - script:
-        name: gh-pages
-        code: if ! make gh-pages-init gh-pages-build gh-pages-push; then fail "Updating vignette failed"; fi
