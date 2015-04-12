@@ -56,7 +56,8 @@ bootstrap_snap:
 
 install:
 	Rscript -e "sessionInfo()"
-	Rscript -e "devtools::install_github(c('hadley/testthat', 'hadley/plyr'))"
+	Rscript -e "devtools::install_github('hadley/testthat')"
+	Rscript -e "devtools::install_github('krlmlr/plyr')"
 	Rscript -e "options(repos = 'http://cran.rstudio.com'); devtools::install_deps(dependencies = TRUE)"
 
 test:
