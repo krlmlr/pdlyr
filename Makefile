@@ -68,3 +68,6 @@ covr:
 
 lintr:
 	Rscript -e 'if (!requireNamespace("lintr")) devtools::install_github("jimhester/lintr"); lintr::lint_package()'
+
+wercker-build:
+	wercker build --docker-host=unix://var/run/docker.sock
