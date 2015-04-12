@@ -4,6 +4,10 @@ plyr_warn <- function(name, expl) {
           expl, .call = FALSE)
 }
 
+#'@docType data
+#'@name compat
+NULL
+
 #' Compatibility layers
 #'
 #' TODO add documentation
