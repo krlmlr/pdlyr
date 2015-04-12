@@ -4,6 +4,11 @@ plyr_warn <- function(name, expl) {
           expl, .call = FALSE)
 }
 
+#' Compatibility layers
+#'
+#' TODO add documentation
+#'
+#'@rdname compat
 #'@export
 plyr_compat <- list(
   mutate = plyr::mutate,
@@ -11,6 +16,7 @@ plyr_compat <- list(
   rename = plyr::rename
 )
 
+#'@rdname compat
 #'@export
 plyr_warn_compat <- list(
   mutate = function(.data, ...) {
@@ -27,6 +33,7 @@ plyr_warn_compat <- list(
   }
 )
 
+#'@rdname compat
 #'@export
 dplyr_compat <- list(
   mutate = function(.data, ...) {
