@@ -10,7 +10,19 @@ NULL
 
 #' Compatibility layers
 #'
-#' TODO add documentation
+#' Attach these layers via \code{attach} for various levels of
+#' compatibility to the \code{plyr} package when both \code{plyr}
+#' and \code{dplyr} are loaded.
+#'
+#' \describe{
+#'   \item{\code{plyr_compat}} Full compatibility, the original \code{plyr}
+#'     implementation is used.
+#'     You should be able to run your code without modifications.
+#'   \item{\code{plyr_warn_compat}} Same as \code{plyr_compat},
+#'     but emit a warning for each call of the affected functions.
+#'   \item{\code{dplyr_compat}} Use implementations from \code{dplyr}
+#'     but keep the \code{plyr} interface, with warnings.
+#' }
 #'
 #'@rdname compat
 #'@export
