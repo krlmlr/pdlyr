@@ -13,7 +13,7 @@ gh-pages-init:
 gh-pages-build:
 	Rscript -e "devtools::build_vignettes()"
 	cp inst/doc/pdlyr.html gh-pages/index.html
-	cd gh-pages/ && git fetch && git merge --no-edit origin/master --strategy ours && git add . && git ci --amend --no-edit && git push -f origin gh-pages
+	cd gh-pages/ && git fetch && git merge --no-edit origin/master --strategy ours && git add . && git commit --amend --no-edit && git push -f origin gh-pages
 
 gh-pages-push:
 	git push origin gh-pages
