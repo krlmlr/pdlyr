@@ -10,7 +10,6 @@ License: GPL-3
 LazyData: true
 Encoding: UTF-8
 Suggests: knitr,
-    testthat,
     abind,
     testthat,
     tcltk,
