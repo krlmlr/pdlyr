@@ -10,5 +10,12 @@ License: GPL-3
 LazyData: true
 Encoding: UTF-8
 Suggests: knitr,
-    testthat
+    testthat,
+    abind,
+    testthat,
+    tcltk,
+    foreach,
+    doParallel,
+    itertools,
+    iterators
 VignetteBuilder: knitr
