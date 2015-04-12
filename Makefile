@@ -75,4 +75,4 @@ staticdocs:
 	Rscript -e 'if (!requireNamespace("staticdocs")) devtools::install_github("gaborcsardi/staticdocs@crayon-colors"); staticdocs::build_site()'
 
 wercker-build:
-	wercker build --docker-host=unix://var/run/docker.sock
+	wercker build --docker-host=unix://var/run/docker.sock --no-remove
