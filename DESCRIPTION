@@ -16,5 +16,6 @@ Suggests: knitr,
     foreach,
     doParallel,
     itertools,
-    iterators
+    iterators,
+    magrittr
 VignetteBuilder: knitr
