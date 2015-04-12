@@ -7,6 +7,7 @@ master: git
 	test $$(git rev-parse --abbrev-ref HEAD) = "master"
 
 gh-pages-init:
+	git branch gh-pages origin/gh-pages
 	git clone --branch gh-pages . gh-pages
 
 gh-pages-build:
