@@ -207,3 +207,7 @@ mtcars %>% plyr::count("gear")
 mtcars %>% rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
 mtcars %>% plyr::rename(list(mpg = "miles_per_gallon")) %>% extract(1:2) %>% head
 ```
+
+---
+
+Last changed: `r format(Sys.time(), tz="UTC", usetz=TRUE)`
