@@ -6,10 +6,16 @@ git:
 master: git
 	test $$(git rev-parse --abbrev-ref HEAD) = "master"
 
+init-gh-pages:
+	git clone --branch gh-pages . gh-pages
+
 gh-pages:
 	Rscript -e "devtools::build_vignettes()"
-	cp inst/doc/pdlyr.html ../$$(basename $$PWD).pages/index.html
-	cd ../$$(basename $$PWD).pages/ && git fetch && git merge --no-edit origin/master --strategy ours && git add . && git ci --amend --no-edit && git push -f origin gh-pages
+	cp inst/doc/pdlyr.html gh-pages/index.html
+	cd gh-pages/ && git fetch && git merge --no-edit origin/master --strategy ours && git add . && git ci --amend --no-edit && git push -f origin gh-pages
+
+gh-pages-push:
+	git push origin gh-pages
 
 rd: git
 	Rscript -e "library(methods); devtools::document()"
