@@ -1,6 +1,11 @@
 \name{NEWS}
 \title{News for Package 'pdlyr'}
 \encoding{UTF-8}
+\section{Changes in pdlyr version 0.0-2.2 (2015-04-12)}{
+  \itemize{
+    \item new compatibility layer \code{plyr_warn_compat} that still is fully compatible with plyr but issues a warning
+  }
+}
 \section{Changes in pdlyr version 0.0-2.1 (2015-04-12)}{
   \itemize{
     \item Compatibility layer is now implemented as list that can be \code{attach()}ed, in order to later support different kinds of compatibility
