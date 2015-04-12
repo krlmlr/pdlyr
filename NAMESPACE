@@ -3,5 +3,5 @@
 export(dplyr_compat)
 export(plyr_compat)
 export(plyr_warn_compat)
-import(dplyr)
-import(plyr)
+importFrom(dplyr,left_join)
+importFrom(plyr,id)

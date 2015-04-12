@@ -10,6 +10,7 @@ plyr_warn <- function(name, expl) {
 #'
 #'@rdname compat
 #'@export
+#'@importFrom plyr id
 plyr_compat <- list(
   mutate = plyr::mutate,
   count = plyr::count,
@@ -35,6 +36,7 @@ plyr_warn_compat <- list(
 
 #'@rdname compat
 #'@export
+#'@importFrom dplyr left_join
 dplyr_compat <- list(
   mutate = function(.data, ...) {
     warning("Row names will be lost")
