@@ -5,17 +5,11 @@ mutate <- function(.data, ...) {
 }
 
 #' @export
-pmutate <- plyr::mutate
-
-#' @export
 count <- function(df, vars = NULL, wt_var = NULL) {
   .Deprecated("dplyr::count_", "plyr")
   dplyr::count_(x = df, vars = vars, wt = wt_var, sort = FALSE) %>%
     dplyr::rename(freq = n)
 }
-
-#' @export
-pcount <- plyr::count
 
 #' @export
 rename <- function(x, replace, warn_missing = TRUE) {
@@ -25,6 +19,3 @@ rename <- function(x, replace, warn_missing = TRUE) {
   .Deprecated("dplyr::rename_", "plyr")
   dplyr::rename_(.data = x, .dots = as.list(setNames(names(replace), unlist(replace))))
 }
-
-#' @export
-prename <- plyr::rename

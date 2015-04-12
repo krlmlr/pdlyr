@@ -2,7 +2,4 @@
 
 export(count)
 export(mutate)
-export(pcount)
-export(pmutate)
-export(prename)
 export(rename)
