@@ -1,4 +1,11 @@
 #'@export
+plyr_compat <- list(
+  mutate = plyr::mutate,
+  count = plyr::count,
+  rename = plyr::rename
+)
+
+#'@export
 dplyr_compat <- list(
   mutate = function(.data, ...) {
     warning("Row names will be lost")
