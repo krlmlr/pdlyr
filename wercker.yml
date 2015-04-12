@@ -1,5 +1,11 @@
-box: krlmlr/r-test
 build:
+  box: debian:latest
+  steps:
+    - script:
+        name: dummy
+        code: true
+deploy:
+  box: krlmlr/r-test
   steps:
     - script:
         name: install
@@ -16,8 +22,6 @@ build:
     - script:
         name: staticdocs
         code: if ! make staticdocs; then fail "Building docs failed"; fi
-deploy:
-  steps:
     - lukevivier/gh-pages@0.2.1:
         token: $GITHUB_TOKEN
         basedir: inst/web
