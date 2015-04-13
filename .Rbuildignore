@@ -1,12 +1,8 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^Makefile$
 ^NEWS\.md$
 ^NEWS\.md\.tmpl$
 ^wercker\.yml$
 ^\.lintr$
-^gh-pages$
-/Makefile
-/makeR
 ^Makefile$
 ^makeR
