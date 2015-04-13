@@ -6,3 +6,5 @@
 ^wercker\.yml$
 ^\.lintr$
 ^gh-pages$
+/Makefile
+/makeR
