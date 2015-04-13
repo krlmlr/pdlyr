@@ -1,0 +1,2 @@
+dependencies:
+	Rscript -e "devtools::install('hadley/plyr')"
