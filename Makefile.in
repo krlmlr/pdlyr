@@ -1,2 +1,2 @@
-dependencies:
-	Rscript -e "devtools::install('hadley/plyr')"
+dependencies-hook:
+	Rscript -e "devtools::install_github('hadley/plyr')"
