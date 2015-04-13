@@ -8,3 +8,5 @@
 ^gh-pages$
 /Makefile
 /makeR
+^Makefile$
+^makeR
