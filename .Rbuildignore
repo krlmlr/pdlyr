@@ -5,4 +5,5 @@
 ^wercker\.yml$
 ^\.lintr$
 ^Makefile$
+^Makefile\.in$
 ^makeR
