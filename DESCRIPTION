@@ -19,3 +19,4 @@ Suggests: knitr,
     iterators,
     magrittr
 VignetteBuilder: knitr
+GitHub: https://github.com/krlmlr/pdlyr
