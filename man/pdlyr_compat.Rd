@@ -31,5 +31,6 @@ These functions set and return the active compatibility layer.
 Functions from the active compatibility layer will be used when calling
 \code{\link{count}}, \code{\link{mutate}} or \code{\link{rename}} from
 this package.
+Initially, \code{\link{plyr_compat}} is the active compatibility layer.
 }
 

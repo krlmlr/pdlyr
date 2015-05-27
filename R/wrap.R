@@ -7,6 +7,7 @@
 #' Functions from the active compatibility layer will be used when calling
 #' \code{\link{count}}, \code{\link{mutate}} or \code{\link{rename}} from
 #' this package.
+#' Initially, \code{\link{plyr_compat}} is the active compatibility layer.
 #'
 #' @name pdlyr_compat
 #' @param x A compatibility layer, e.g., one described in \code{\link{compat}}
@@ -46,3 +47,15 @@ get_rename_wrapper <- function() {
 makeActiveBinding("count", get_count_wrapper, asNamespace("pdlyr"))
 makeActiveBinding("mutate", get_mutate_wrapper, asNamespace("pdlyr"))
 makeActiveBinding("rename", get_rename_wrapper, asNamespace("pdlyr"))
+
+#' Wrapped count function
+#'
+#' This active binding returns \code{get_count_wrapper()}.
+#' Thus, the interface and the results of calling \code{count()}
+#' from this package depend on the currently active compatibility layer.
+#' When the package, is loaded the \code{\link{plyr_compat}} layer is active;
+#' this documentation reflects the interface presented by that layer.
+#'
+#' @inheritParams plyr::count
+#' @seealso \code{\link{pdlyr_compat}}
+"count"
