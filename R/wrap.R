@@ -26,7 +26,7 @@ set_pdlyr_compat <- function(compat) {
 
   old_compat <- .compat_env[["compat"]]
   .compat_env[["compat"]] <- compat
-  old_compat
+  invisible(old_compat)
 }
 
 #' @rdname pdlyr_compat
