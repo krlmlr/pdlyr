@@ -1,0 +1,5 @@
+my_test:
+	Rscript -e "devtools::check(document = FALSE, check_dir = '.', cleanup = FALSE)"
+	! egrep -A 5 "ERROR|WARNING" *.Rcheck/00check.log
+
+
