@@ -1,3 +1,6 @@
+Version 0.0-2.3 (2015-05-27)
+===
+
 - Testing with Wercker, coverage with codecov.io
 - staticdocs
 
