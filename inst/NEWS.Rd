@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{News for Package 'pdlyr'}
 \encoding{UTF-8}
+\section{Changes in pdlyr version 0.0-2.3 (2015-05-27)}{
+  \itemize{
+    \item Testing with Wercker, coverage with codecov.io
+    \item staticdocs
+  }
+}
 \section{Changes in pdlyr version 0.0-2.2 (2015-04-12)}{
   \itemize{
     \item new compatibility layer \code{plyr_warn_compat} that still is fully compatible with plyr but issues a warning
