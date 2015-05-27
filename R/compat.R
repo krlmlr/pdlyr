@@ -25,7 +25,6 @@ NULL
 #' }
 #'
 #'@rdname compat
-#'@export
 #'@importFrom plyr id
 plyr_compat <- list(
   mutate = plyr::mutate,
@@ -34,7 +33,6 @@ plyr_compat <- list(
 )
 
 #'@rdname compat
-#'@export
 plyr_warn_compat <- list(
   mutate = function(.data, ...) {
     plyr_warn("mutate", "Row names will be lost")
@@ -51,7 +49,6 @@ plyr_warn_compat <- list(
 )
 
 #'@rdname compat
-#'@export
 #'@importFrom dplyr left_join
 dplyr_compat <- list(
   mutate = function(.data, ...) {
