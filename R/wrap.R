@@ -44,10 +44,6 @@ get_rename_wrapper <- function() {
   .compat_env[["compat"]][["rename"]]
 }
 
-makeActiveBinding("count", get_count_wrapper, asNamespace("pdlyr"))
-makeActiveBinding("mutate", get_mutate_wrapper, asNamespace("pdlyr"))
-makeActiveBinding("rename", get_rename_wrapper, asNamespace("pdlyr"))
-
 #' Wrapped count function
 #'
 #' This active binding returns \code{get_count_wrapper()}.
@@ -59,6 +55,7 @@ makeActiveBinding("rename", get_rename_wrapper, asNamespace("pdlyr"))
 #' @inheritParams plyr::count
 #' @seealso \code{\link{pdlyr_compat}}
 "count"
+makeActiveBinding("count", get_count_wrapper, asNamespace("pdlyr"))
 
 #' Wrapped mutate function
 #'
@@ -71,6 +68,7 @@ makeActiveBinding("rename", get_rename_wrapper, asNamespace("pdlyr"))
 #' @inheritParams plyr::mutate
 #' @seealso \code{\link{pdlyr_compat}}
 "mutate"
+makeActiveBinding("mutate", get_mutate_wrapper, asNamespace("pdlyr"))
 
 #' Wrapped rename function
 #'
@@ -83,3 +81,4 @@ makeActiveBinding("rename", get_rename_wrapper, asNamespace("pdlyr"))
 #' @inheritParams plyr::rename
 #' @seealso \code{\link{pdlyr_compat}}
 "rename"
+makeActiveBinding("rename", get_rename_wrapper, asNamespace("pdlyr"))
