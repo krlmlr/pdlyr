@@ -13,3 +13,11 @@ getNamespaceExports("plyr") %>%
   sprintf('"%s"', .) %>%
   sprintf("importFrom(plyr,%s)", .) %>%
   append
+
+"" %>% append
+
+getNamespaceExports("dplyr") %>%
+  setdiff(c("count", "mutate", "rename")) %>%
+  sprintf('"%s"', .) %>%
+  sprintf("importFrom(dplyr,%s)", .) %>%
+  append
