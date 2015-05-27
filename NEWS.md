@@ -1,3 +1,7 @@
+- active compatibility layer via `get_pdlyr_compat()` and `set_pdlyr_compat()?`
+- access wrappers from active compatibility layer via `get_*_wrapper()`
+- export `count`, `mutate` and `rename` as active bindings that return the currently active wrappers
+
 Version 0.0-2.4 (2015-05-27)
 ===
 
