@@ -24,27 +24,28 @@ NULL
 #'     but keep the \code{plyr} interface, with warnings.}
 #' }
 #'
-#'@rdname compat
-#'@importFrom plyr id
+#' @rdname compat
+#' @importFrom plyr id
+#' @include wrap.R
 plyr_compat <- list(
-  mutate = plyr::mutate,
-  count = plyr::count,
-  rename = plyr::rename
+  mutate = pmutate,
+  count = pcount,
+  rename = prename
 )
 
 #'@rdname compat
 plyr_warn_compat <- list(
   mutate = function(.data, ...) {
     plyr_warn("mutate", "Row names will be lost")
-    plyr::mutate(.data = .data, ...)
+    pmutate(.data = .data, ...)
   },
   count = function(df, vars = NULL, wt_var = NULL) {
     plyr_warn("count", "Interface and name of count variable have changed")
-    plyr::count(df = df, vars = vars, wt_var = wt_var)
+    pcount(df = df, vars = vars, wt_var = wt_var)
   },
   rename = function(x, replace, warn_missing = TRUE) {
     plyr_warn("rename", "Entirely different interface, lists and vectors not accepted anymore")
-    plyr::rename(x = x, replace = replace, warn_missing = warn_missing)
+    prename(x = x, replace = replace, warn_missing = warn_missing)
   }
 )
 
