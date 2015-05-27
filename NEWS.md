@@ -1,3 +1,6 @@
+- `dplyr_compat` now means full compatibility to `dplyr` (i.e., the default).
+- Use wrappers when defining compatibility layers
+
 Version 0.0-3 (2015-05-27)
 ===
 
