@@ -33,7 +33,8 @@ plyr_compat <- list(
   rename = prename
 )
 
-#'@rdname compat
+#' @rdname compat
+#' @include wrap.R
 plyr_warn_compat <- list(
   mutate = function(.data, ...) {
     plyr_warn("mutate", "Row names will be lost")
@@ -49,8 +50,8 @@ plyr_warn_compat <- list(
   }
 )
 
-#'@rdname compat
-#'@importFrom dplyr left_join
+#' @rdname compat
+#' @include wrap.R
 dplyr_compat <- list(
   mutate = function(.data, ...) {
     warning("Row names will be lost")
