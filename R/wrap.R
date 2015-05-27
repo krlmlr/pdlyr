@@ -10,7 +10,8 @@
 #'
 #' @name pdlyr_compat
 #' @param x A compatibility layer, e.g., one described in \code{\link{compat}}
-#' @return The active or old compatibility layer
+#' @return The active or old compatibility layer (for \code{*_compat}); the
+#'   wrapped function (for \code{*_wrapper}).
 get_pdlyr_compat <- function() {
   .compat_env[["compat"]]
 }
@@ -27,14 +28,17 @@ set_pdlyr_compat <- function(compat) {
   old_compat
 }
 
+#' @rdname pdlyr_compat
 get_count_wrapper <- function() {
   .compat_env[["compat"]][["count"]]
 }
 
+#' @rdname pdlyr_compat
 get_mutate_wrapper <- function() {
   .compat_env[["compat"]][["mutate"]]
 }
 
+#' @rdname pdlyr_compat
 get_rename_wrapper <- function() {
   .compat_env[["compat"]][["rename"]]
 }
