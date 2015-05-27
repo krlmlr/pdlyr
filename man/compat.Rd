@@ -10,7 +10,7 @@
 \format{\preformatted{List of 3
  $ mutate:function (.data, ...)  
  $ count :function (df, vars = NULL, wt_var = NULL)  
- $ rename:function (x, replace, warn_missing = TRUE)  
+ $ rename:function (x, replace, warn_missing = TRUE, warn_duplicated = TRUE)  
 }}
 \usage{
 plyr_compat
