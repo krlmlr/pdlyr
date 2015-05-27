@@ -1,28 +1,10 @@
-- import everything of `dplyr` except `count`, `mutate` and `rename` (to avoid warnings when attached or loaded)
+- Compatibility layer is now implemented as list that can be `attach()`ed, in order to later support different kinds of compatibility
+- Available layers: `plyr_compat`, `plyr_warn_compat`, `dplyr_compat` (the latter will probably be deprecated)
+- import all of `plyr` and `dplyr` except `count`, `mutate` and `rename` (to avoid warnings when attached or loaded)
 - explicit wrappers for overlaps
-
-Version 0.0-2.4 (2015-05-27)
-===
-
-- import all of `plyr` and `dplyr` (when attached and not loaded)
-- add vignettes to version control
-
-Version 0.0-2.3 (2015-05-27)
-===
-
 - Testing with Wercker, coverage with codecov.io
 - staticdocs
-
-Version 0.0-2.2 (2015-04-12)
-===
-
-- new compatibility layer `plyr_warn_compat` that still is fully compatible with plyr but issues a warning
-
-Version 0.0-2.1 (2015-04-12)
-===
-
-- Compatibility layer is now implemented as list that can be `attach()`ed, in order to later support different kinds of compatibility
-- Remove short-form pointers to original plyr implementations, the goal is transition to `dplyr`.
+- add vignettes to version control
 
 
 Version 0.0-2 (2015-04-11)
