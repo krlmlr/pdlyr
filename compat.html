@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>compat. pdlyr 0.0-2.2</title>
+<title>compat. pdlyr 0.0-2.3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -14,13 +14,25 @@
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
 
   <body>
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">pdlyr 0.0-2.2</a>
+      <a class="brand" href="#">pdlyr 0.0-2.3</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -51,7 +63,7 @@
       <p><pre>List of 3
  $ mutate:function (.data, ...)  
  $ count :function (df, vars = NULL, wt_var = NULL)  
- $ rename:function (x, replace, warn_missing = TRUE)  
+ $ rename:function (x, replace, warn_missing = TRUE, warn_duplicated = TRUE)  
 </pre></p>
   
     </div>
