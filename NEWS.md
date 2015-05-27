@@ -1,3 +1,6 @@
+Version 0.0-2.4 (2015-05-27)
+===
+
 - import all of `plyr` and `dplyr` (when attached and not loaded)
 - add vignettes to version control
 
