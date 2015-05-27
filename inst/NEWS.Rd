@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{News for Package 'pdlyr'}
 \encoding{UTF-8}
+\section{Changes in pdlyr version 0.0-2.5 (2015-05-27)}{
+  \itemize{
+    \item import everything of \code{dplyr} except \code{count}, \code{mutate} and \code{rename} (to avoid warnings when attached or loaded)
+    \item explicit wrappers for overlaps
+  }
+}
 \section{Changes in pdlyr version 0.0-2.4 (2015-05-27)}{
   \itemize{
     \item import all of \code{plyr} and \code{dplyr} (when attached and not loaded)
