@@ -1,3 +1,6 @@
+- import everything of `dplyr` except `count`, `mutate` and `rename` (to avoid warnings when attached or loaded)
+- explicit wrappers for overlaps
+
 Version 0.0-2.4 (2015-05-27)
 ===
 
