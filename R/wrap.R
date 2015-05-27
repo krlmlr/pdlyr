@@ -59,3 +59,27 @@ makeActiveBinding("rename", get_rename_wrapper, asNamespace("pdlyr"))
 #' @inheritParams plyr::count
 #' @seealso \code{\link{pdlyr_compat}}
 "count"
+
+#' Wrapped mutate function
+#'
+#' This active binding returns \code{get_mutate_wrapper()}.
+#' Thus, the interface and the results of calling \code{mutate()}
+#' from this package depend on the currently active compatibility layer.
+#' When the package, is loaded the \code{\link{plyr_compat}} layer is active;
+#' this documentation reflects the interface presented by that layer.
+#'
+#' @inheritParams plyr::mutate
+#' @seealso \code{\link{pdlyr_compat}}
+"mutate"
+
+#' Wrapped rename function
+#'
+#' This active binding returns \code{get_rename_wrapper()}.
+#' Thus, the interface and the results of calling \code{rename()}
+#' from this package depend on the currently active compatibility layer.
+#' When the package, is loaded the \code{\link{plyr_compat}} layer is active;
+#' this documentation reflects the interface presented by that layer.
+#'
+#' @inheritParams plyr::rename
+#' @seealso \code{\link{pdlyr_compat}}
+"rename"
