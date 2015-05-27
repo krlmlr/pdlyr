@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>forward. pdlyr 0.0-3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pdlyr 0.0-3</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Forwarders for overlapping functions in plyr and dplyr</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>pcount(df, vars&nbsp;=&nbsp;NULL, wt_var&nbsp;=&nbsp;NULL)</div>
+<div>pmutate(.data, ...)</div>
+<div>prename(x, replace, warn_missing&nbsp;=&nbsp;TRUE, warn_duplicated&nbsp;=&nbsp;TRUE)</div>
+<div>dcount(x, ..., wt&nbsp;=&nbsp;NULL, sort&nbsp;=&nbsp;FALSE)</div>
+<div>dmutate(.data, ...)</div>
+<div>drename(.data, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>df</dt>
+      <dd>data frame to be processed</dd>
+      <dt>vars</dt>
+      <dd>variables to count unique values of</dd>
+      <dt>wt_var</dt>
+      <dd>optional variable to weight by - if this is non-NULL, count
+will sum up the value of this variable for each combination of id
+variables.</dd>
+      <dt>.data</dt>
+      <dd>the data frame to transform</dd>
+      <dt>...</dt>
+      <dd>named parameters giving definitions of new columns.</dd>
+      <dt>x</dt>
+      <dd>named object to modify</dd>
+      <dt>replace</dt>
+      <dd>named character vector, with new names as values, and
+old names as names.</dd>
+      <dt>warn_missing</dt>
+      <dd>print a message if any of the old names are
+not actually present in <code>x</code>.</dd>
+      <dt>warn_duplicated</dt>
+      <dd>print a message if any name appears more
+  than once in <code>x</code> after the operation.
+Note: x is not altered: To save the result, you need to copy the returned
+  data into a variable.</dd>
+      <dt>wt</dt>
+      <dd>(Optional) If not specified, will tally the number of rows.
+If specified, will perform a "weighted" tally but summing over the
+specified variable.</dd>
+      <dt>sort</dt>
+      <dd>if <code>TRUE</code> will sort output in descending order of <code>n</code></dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>Of the overlapping functions in <code>plyr</code> and <code>dplyr</code>,
+only three have a different interface and/or semantics:
+<code>count</code>, <code>mutate</code> and <code>rename</code>.
+These functions are forwarders to the corresponding functions
+in the <code>plyr</code> and <code>dplyr</code> packages.</p>
+  
+    </div>
+      </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dcount</li><li>dmutate</li><li>drename</li><li>forward</li><li>pcount</li><li>pmutate</li><li>prename</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code>plyr::<a href='http://www.inside-r.org/packages/cran/plyr/docs/count'>count</a></code>
+
+<code>plyr::<a href='http://www.inside-r.org/packages/cran/plyr/docs/mutate'>mutate</a></code>
+
+<code>plyr::<a href='http://www.inside-r.org/packages/cran/plyr/docs/rename'>rename</a></code>
+
+<code>dplyr::<a href='http://www.inside-r.org/packages/cran/dplyr/docs/tally'>count</a></code>
+
+<code>dplyr::<a href='http://www.inside-r.org/packages/cran/dplyr/docs/mutate'>mutate</a></code>
+
+<code>dplyr::<a href='http://www.inside-r.org/packages/cran/dplyr/docs/select'>rename</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://getbootstrap.com">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

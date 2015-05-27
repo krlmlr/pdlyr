@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Index. pdlyr 0.0-2.4</title>
+<title>Index. pdlyr 0.0-3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -32,7 +32,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">pdlyr 0.0-2.4</a>
+      <a class="brand" href="#">pdlyr 0.0-3</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -66,6 +66,9 @@
         <code><a href="compat.html">compat</a></code>(dplyr_compat, plyr_compat, plyr_warn_compat)<br />Compatibility layers</li>
             
       <li>
+        <code><a href="forward.html">forward</a></code>(dcount, dmutate, drename, pcount, pmutate, prename)<br />Forwarders for overlapping functions in plyr and dplyr</li>
+            
+      <li>
         <code><a href="pdlyr.html">pdlyr</a></code>(pdlyr-package)<br />pdlyr.</li>
     
     </ul>
@@ -79,8 +82,8 @@
         
     <h2>Dependencies</h2>
     <ul>
-      <li><strong>Depends</strong>: plyr, dplyr</li>
-      
+      <li><strong>Depends</strong>: plyr, plyr, dplyr, dplyr</li>
+      <li><strong>Imports</strong>: lazyeval</li>
       <li><strong>Suggests</strong>: knitr, abind, testthat, tcltk, foreach, doParallel, itertools, iterators, magrittr</li>
       
     </ul>
