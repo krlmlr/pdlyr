@@ -79,7 +79,7 @@ body_l$failwith$plyr
 body_l$failwith$dplyr
 
 ## ------------------------------------------------------------------------
-attach(pdlyr::dplyr_compat)
+attach(pdlyr::plyr_compat)
 
 ## ------------------------------------------------------------------------
 mtcars %>% mutate(lphkm = 100 * 3.785411784 / 1.609344 / mpg) %>% head

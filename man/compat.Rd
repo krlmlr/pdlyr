@@ -31,8 +31,7 @@ and \code{dplyr} are loaded.
     You should be able to run your existing code without modifications.}
   \item{plyr_warn_compat}{Same as \code{plyr_compat},
     but emit a warning for each call of the affected functions.}
-  \item{dplyr_compat}{Use implementations from \code{dplyr}
-    but keep the \code{plyr} interface, with warnings.}
+  \item{dplyr_compat}{Full compatibility with \code{dplyr}}
 }
 }
 \keyword{datasets}

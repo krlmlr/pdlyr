@@ -185,7 +185,7 @@ for a project that was created using `plyr` and is now transitioning
 towards `dplyr`:
 
 ```{r}
-attach(pdlyr::dplyr_compat)
+attach(pdlyr::plyr_compat)
 ```
 
 Tests in the `pdlyr` package will assure that this package

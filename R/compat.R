@@ -20,51 +20,39 @@ NULL
 #'     You should be able to run your existing code without modifications.}
 #'   \item{plyr_warn_compat}{Same as \code{plyr_compat},
 #'     but emit a warning for each call of the affected functions.}
-#'   \item{dplyr_compat}{Use implementations from \code{dplyr}
-#'     but keep the \code{plyr} interface, with warnings.}
+#'   \item{dplyr_compat}{Full compatibility with \code{dplyr}}
 #' }
 #'
-#'@rdname compat
-#'@importFrom plyr id
+#' @rdname compat
+#' @importFrom plyr id
+#' @include wrap.R
 plyr_compat <- list(
-  mutate = plyr::mutate,
-  count = plyr::count,
-  rename = plyr::rename
+  mutate = pmutate,
+  count = pcount,
+  rename = prename
 )
 
-#'@rdname compat
+#' @rdname compat
+#' @include wrap.R
 plyr_warn_compat <- list(
   mutate = function(.data, ...) {
     plyr_warn("mutate", "Row names will be lost")
-    plyr::mutate(.data = .data, ...)
+    pmutate(.data = .data, ...)
   },
   count = function(df, vars = NULL, wt_var = NULL) {
     plyr_warn("count", "Interface and name of count variable have changed")
-    plyr::count(df = df, vars = vars, wt_var = wt_var)
+    pcount(df = df, vars = vars, wt_var = wt_var)
   },
   rename = function(x, replace, warn_missing = TRUE) {
     plyr_warn("rename", "Entirely different interface, lists and vectors not accepted anymore")
-    plyr::rename(x = x, replace = replace, warn_missing = warn_missing)
+    prename(x = x, replace = replace, warn_missing = warn_missing)
   }
 )
 
-#'@rdname compat
-#'@importFrom dplyr left_join
+#' @rdname compat
+#' @include wrap.R
 dplyr_compat <- list(
-  mutate = function(.data, ...) {
-    warning("Row names will be lost")
-    dplyr::mutate_(.data = .data, .dots = lazyeval::lazy_dots(...))
-  },
-  count = function(df, vars = NULL, wt_var = NULL) {
-  .Deprecated("dplyr::count_", "plyr")
-  dplyr::count_(x = df, vars = vars, wt = wt_var, sort = FALSE) %>%
-    dplyr::rename(freq = n)
-  },
-  rename = function(x, replace, warn_missing = TRUE) {
-    if (!warn_missing) {
-      warning("rename now always throws an error if names are not found.")
-    }
-    .Deprecated("dplyr::rename_", "plyr")
-    dplyr::rename_(.data = x, .dots = as.list(setNames(names(replace), unlist(replace))))
-  }
+  mutate = dmutate,
+  count = dcount,
+  rename = drename
 )
