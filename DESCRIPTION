@@ -20,3 +20,4 @@ Suggests: knitr,
     magrittr
 VignetteBuilder: knitr
 GitHub: https://github.com/krlmlr/pdlyr
+Roxygen: list(roclets=c("collate", "rd", "vignette"))
