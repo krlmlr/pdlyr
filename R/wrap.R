@@ -20,7 +20,7 @@ get_pdlyr_compat <- function() {
 #' @rdname pdlyr_compat
 set_pdlyr_compat <- function(compat) {
   if (!is.list(compat) || sort(names(compat)) != c("count", "mutate", "rename") ||
-      any(!vapply(compat, is.function, logical()))) {
+      any(!vapply(compat, is.function, logical(1)))) {
     stop("compat must be a named list with three functions count, mutate and rename")
   }
 
