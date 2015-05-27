@@ -20,7 +20,7 @@ get_mutate_wrapper()
 get_rename_wrapper()
 }
 \arguments{
-\item{x}{A compatibility layer, e.g., one described in \code{\link{compat}}}
+\item{compat}{A compatibility layer, e.g., one described in \code{\link{compat}}}
 }
 \value{
 The active or old compatibility layer (for \code{*_compat}); the

@@ -10,7 +10,7 @@
 #' Initially, \code{\link{plyr_compat}} is the active compatibility layer.
 #'
 #' @name pdlyr_compat
-#' @param x A compatibility layer, e.g., one described in \code{\link{compat}}
+#' @param compat A compatibility layer, e.g., one described in \code{\link{compat}}
 #' @return The active or old compatibility layer (for \code{*_compat}); the
 #'   wrapped function (for \code{*_wrapper}).
 get_pdlyr_compat <- function() {
