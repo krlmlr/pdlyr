@@ -3,6 +3,12 @@
 export(dplyr_compat)
 export(plyr_compat)
 export(plyr_warn_compat)
+export(dmutate)
+export(dcount)
+export(drename)
+export(pmutate)
+export(pcount)
+export(prename)
 
 importFrom(plyr,"aaply")
 importFrom(plyr,"progress_win")
