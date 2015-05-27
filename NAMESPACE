@@ -2,6 +2,9 @@ export(dplyr_compat)
 export(plyr_compat)
 export(plyr_warn_compat)
 
+export(get_pdlyr_compat)
+export(set_pdlyr_compat)
+
 export(mutate)
 export(count)
 export(rename)
