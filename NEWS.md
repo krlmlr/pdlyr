@@ -1,4 +1,5 @@
 - Testing with Wercker, coverage with codecov.io
+- staticdocs
 
 Version 0.0-2.2 (2015-04-12)
 ===
