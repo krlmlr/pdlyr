@@ -1,2 +1,0 @@
-dependencies-hook:
-	Rscript -e "devtools::install_github('krlmlr/plyr')"
