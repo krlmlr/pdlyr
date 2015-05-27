@@ -9,6 +9,6 @@ with_compat <- function(compat, ...) {
   )
 }
 
-with_compat(plyr_compat,
+with_compat(plyr_compat, {
   testthat::test_package("plyr")
-)
+})
