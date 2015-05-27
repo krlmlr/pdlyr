@@ -5,7 +5,11 @@ Authors@R: as.person("Kirill Müller <krlmlr+r@mailbox.org> [aut, cre]")
 Description: This package aims at simplifying the transition
   from plyr to dplyr by providing suitable wrapper methods
   for the few incompatible overlaps.
-Depends: R (>= 3.1.3), plyr (>= 1.8.2), dplyr (>= 0.4.1)
+Depends: R (>= 3.1.3),
+  plyr (>= 1.8.2), plyr (<= 1.8.2.9999),
+  dplyr (>= 0.4.1), dplyr (<= 0.4.1.9999)
+Imports:
+  lazyeval (>= 0.1.10)
 License: GPL-3
 LazyData: true
 Encoding: UTF-8
