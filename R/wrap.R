@@ -10,24 +10,30 @@ NULL
 
 #' @rdname forward
 #' @inheritParams plyr::count
+#' @seealso \code{plyr::\link[plyr]{count}}
 pcount <- plyr::count
 
 #' @rdname forward
 #' @inheritParams plyr::mutate
+#' @seealso \code{plyr::\link[plyr]{mutate}}
 pmutate <- plyr::mutate
 
 #' @rdname forward
 #' @inheritParams plyr::rename
+#' @seealso \code{plyr::\link[plyr]{rename}}
 prename <- plyr::rename
 
 #' @rdname forward
 #' @inheritParams dplyr::count
+#' @seealso \code{dplyr::\link[dplyr]{count}}
 dcount <- dplyr::count
 
 #' @rdname forward
 #' @inheritParams dplyr::mutate
+#' @seealso \code{dplyr::\link[dplyr]{mutate}}
 dmutate <- dplyr::mutate
 
 #' @rdname forward
 #' @inheritParams dplyr::rename
-dmrename <- dplyr::rename
+#' @seealso \code{dplyr::\link[dplyr]{rename}}
+drename <- dplyr::rename

@@ -2,8 +2,8 @@
 % Please edit documentation in R/wrap.R
 \name{forward}
 \alias{dcount}
-\alias{dmrename}
 \alias{dmutate}
+\alias{drename}
 \alias{forward}
 \alias{pcount}
 \alias{pmutate}
@@ -20,7 +20,7 @@ dcount(x, ..., wt = NULL, sort = FALSE)
 
 dmutate(.data, ...)
 
-dmrename(.data, ...)
+drename(.data, ...)
 }
 \arguments{
 \item{df}{data frame to be processed}
@@ -63,5 +63,15 @@ in the \code{plyr} and \code{dplyr} packages.
 }
 \seealso{
 \code{plyr::\link[plyr]{count}}
+
+\code{plyr::\link[plyr]{mutate}}
+
+\code{plyr::\link[plyr]{rename}}
+
+\code{dplyr::\link[dplyr]{count}}
+
+\code{dplyr::\link[dplyr]{mutate}}
+
+\code{dplyr::\link[dplyr]{rename}}
 }
 
