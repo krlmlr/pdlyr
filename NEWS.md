@@ -1,3 +1,6 @@
+Version 0.0-3 (2015-05-27)
+===
+
 - Compatibility layer is now implemented as list that can be `attach()`ed, in order to later support different kinds of compatibility
 - Available layers: `plyr_compat`, `plyr_warn_compat`, `dplyr_compat` (the latter will probably be deprecated)
 - import all of `plyr` and `dplyr` except `count`, `mutate` and `rename` (to avoid warnings when attached or loaded)
