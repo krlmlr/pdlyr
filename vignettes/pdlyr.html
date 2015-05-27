@@ -323,7 +323,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 <div id="summary" class="section level1">
 <h1>Summary</h1>
 <p>For practical use, a thin compatibility layer seems to work reasonably well for a project that was created using <code>plyr</code> and is now transitioning towards <code>dplyr</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(pdlyr::dplyr_compat)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(pdlyr::plyr_compat)</code></pre>
 <pre><code>## The following objects are masked from package:dplyr:
 ## 
 ##     count, mutate, rename
@@ -334,11 +334,10 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 <p>Tests in the <code>pdlyr</code> package will assure that this package can be safely loaded with <code>warn.conflicts = FALSE</code>. The original <code>plyr</code> implementations can be accessed via shortcuts (prefix <code>p</code>).</p>
 <p>A few usage examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%<span class="st"> </span><span class="kw">mutate</span>(<span class="dt">lphkm =</span> <span class="dv">100</span> *<span class="st"> </span><span class="fl">3.785411784</span> /<span class="st"> </span><span class="fl">1.609344</span> /<span class="st"> </span>mpg) %&gt;%<span class="st"> </span>head</code></pre>
-<pre><code>## Warning in mutate(., lphkm = 100 * 3.785411784/1.609344/mpg): Row names
-## will be lost</code></pre>
 <table>
 <thead>
 <tr class="header">
+<th align="left"></th>
 <th align="right">mpg</th>
 <th align="right">cyl</th>
 <th align="right">disp</th>
@@ -355,6 +354,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">Mazda RX4</td>
 <td align="right">21.0</td>
 <td align="right">6</td>
 <td align="right">160</td>
@@ -369,6 +369,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 <td align="right">11.20069</td>
 </tr>
 <tr class="even">
+<td align="left">Mazda RX4 Wag</td>
 <td align="right">21.0</td>
 <td align="right">6</td>
 <td align="right">160</td>
@@ -383,6 +384,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 <td align="right">11.20069</td>
 </tr>
 <tr class="odd">
+<td align="left">Datsun 710</td>
 <td align="right">22.8</td>
 <td align="right">4</td>
 <td align="right">108</td>
@@ -397,6 +399,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 <td align="right">10.31643</td>
 </tr>
 <tr class="even">
+<td align="left">Hornet 4 Drive</td>
 <td align="right">21.4</td>
 <td align="right">6</td>
 <td align="right">258</td>
@@ -411,6 +414,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 <td align="right">10.99134</td>
 </tr>
 <tr class="odd">
+<td align="left">Hornet Sportabout</td>
 <td align="right">18.7</td>
 <td align="right">8</td>
 <td align="right">360</td>
@@ -425,6 +429,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 <td align="right">12.57832</td>
 </tr>
 <tr class="even">
+<td align="left">Valiant</td>
 <td align="right">18.1</td>
 <td align="right">6</td>
 <td align="right">225</td>
@@ -795,9 +800,6 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 </tbody>
 </table>
 <pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%<span class="st"> </span><span class="kw">count</span>(<span class="st">&quot;gear&quot;</span>)</code></pre>
-<pre><code>## Warning: 'count' is deprecated.
-## Use 'dplyr::count_' instead.
-## See help(&quot;Deprecated&quot;) and help(&quot;plyr-deprecated&quot;).</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -844,9 +846,6 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 </tbody>
 </table>
 <pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%<span class="st"> </span><span class="kw">rename</span>(<span class="kw">list</span>(<span class="dt">mpg =</span> <span class="st">&quot;miles_per_gallon&quot;</span>)) %&gt;%<span class="st"> </span><span class="kw">extract</span>(<span class="dv">1</span>:<span class="dv">2</span>) %&gt;%<span class="st"> </span>head</code></pre>
-<pre><code>## Warning: 'rename' is deprecated.
-## Use 'dplyr::rename_' instead.
-## See help(&quot;Deprecated&quot;) and help(&quot;plyr-deprecated&quot;).</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -931,7 +930,7 @@ dplyr_exports &lt;-<span class="st"> </span><span class="kw">ls</span>(<span cla
 </tbody>
 </table>
 <hr />
-<p>Last changed: 2015-05-27 07:43:08 UTC</p>
+<p>Last changed: 2015-05-27 10:55:35 UTC</p>
 </div>
 
 
