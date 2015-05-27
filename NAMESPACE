@@ -2,6 +2,10 @@ export(dplyr_compat)
 export(plyr_compat)
 export(plyr_warn_compat)
 
+export(mutate)
+export(count)
+export(rename)
+
 # Generate list below using:
 # getNamespaceExports("plyr") %>%
 #   setdiff(c("mutate", "summarise", "summarize", "arrange", "failwith", "id", "rename", "desc", "count")) %>%
