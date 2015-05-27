@@ -9,7 +9,7 @@ build:
         code: if ! make dependencies; then fail "Install failed"; fi
     - script:
         name: test
-        code: if ! make test && ! egrep -A 5 "ERROR|WARNING" *.Rcheck/00check.log; then fail "Test failed"; fi
+        code: if ! make test || ! egrep -A 5 "ERROR|WARNING" *.Rcheck/00check.log; then fail "Test failed"; fi
     - script:
         name: codecov
         code: if ! make covr; then fail "Coverage failed"; fi
